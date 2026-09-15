@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+.<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0a84ff">
-<title>Установщик TrollStore</title>
+<title>Установщик приложений</title>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     html, body {
@@ -16,7 +16,6 @@
         color: #fff;
         padding: 30px 20px 50px;
     }
-
     h1 {
         font-size: 28px;
         font-weight: 800;
@@ -24,7 +23,6 @@
         margin-bottom: 8px;
         letter-spacing: -0.5px;
     }
-
     .subtitle {
         font-size: 14px;
         color: #8a8a93;
@@ -32,7 +30,6 @@
         line-height: 1.5;
         margin-bottom: 30px;
     }
-
     .section-label {
         font-size: 12px;
         text-transform: uppercase;
@@ -40,14 +37,12 @@
         color: #5a5a65;
         margin: 0 0 12px 4px;
     }
-
     .btn-group {
         display: flex;
         flex-direction: column;
         gap: 14px;
         margin-bottom: 28px;
     }
-
     .install-btn {
         display: flex;
         flex-direction: column;
@@ -63,9 +58,7 @@
         transition: transform 0.1s ease;
         cursor: pointer;
     }
-
     .install-btn:active { transform: scale(0.97); }
-
     .install-btn .btn-title {
         font-size: 18px;
         font-weight: 800;
@@ -73,26 +66,16 @@
         text-transform: uppercase;
         line-height: 1.2;
     }
-
     .install-btn .btn-desc {
         font-size: 12px;
         opacity: 0.75;
         margin-top: 5px;
         line-height: 1.3;
     }
-
-    .btn-primary {
-        background: linear-gradient(135deg, #0a84ff 0%, #0051d5 100%);
-    }
-
-    .btn-secondary {
-        background: linear-gradient(135deg, #34c759 0%, #248a3d 100%);
-    }
-
-    .btn-alt {
-        background: linear-gradient(135deg, #5e5ce6 0%, #3634a3 100%);
-    }
-
+    .btn-primary { background: linear-gradient(135deg, #0a84ff 0%, #0051d5 100%); }
+    .btn-secondary { background: linear-gradient(135deg, #34c759 0%, #248a3d 100%); }
+    .btn-alt { background: linear-gradient(135deg, #5e5ce6 0%, #3634a3 100%); }
+    .btn-warn { background: linear-gradient(135deg, #ff9f0a 0%, #cc7a00 100%); }
     .note {
         background: #16161c;
         border: 1px solid #23232b;
@@ -102,47 +85,54 @@
         color: #8a8a93;
         line-height: 1.6;
     }
-
     .note b { color: #c7c7cc; }
     .note .warn { color: #ffb340; }
 </style>
 </head>
 <body>
 
-<h1>Установщик TrollStore</h1>
-<p class="subtitle">Выберите способ установки.<br>Если один не работает — попробуйте другой.</p>
+<h1>Установщик приложений</h1>
+<p class="subtitle">Выберите сервис для подписи и установки IPA.<br>Если один не работает — попробуйте другой.</p>
 
-<div class="section-label">Способ 1 — основной</div>
+<div class="section-label">Сервисы подписи</div>
 <div class="btn-group">
+
+    <!-- ESign (установка через манифест) -->
     <a class="install-btn btn-primary"
-       href="itms-services://?action=download-manifest&url=https%3A%2F%2Fjailbreaks.app%2Fcdn%2Fplists%2FTrollHelper.plist">
-        <span class="btn-title">Установить TrollStore</span>
-        <span class="btn-desc">Стандартный манифест (jailbreaks.app)</span>
+       href="itms-services://?action=download-manifest&url=https%3A%2F%2Fsign.applep12.com%2FGetPlist%2F67e5e300-a852-4d01-0020-c8615a7e7f9d">
+        <span class="btn-title">ESign</span>
+        <span class="btn-desc">Подпись и установка IPA на устройстве</span>
     </a>
-</div>
 
-<div class="section-label">Способ 2 — альтернативный</div>
-<div class="btn-group">
+    <!-- KSign (официальный сайт) -->
     <a class="install-btn btn-secondary"
-       href="https://api.jailbreaks.app/troll">
-        <span class="btn-title">TrollHelperOTA (ссылка)</span>
-        <span class="btn-desc">Откроется страница с кнопкой Install в Safari</span>
+       href="https://ksign-ios.com">
+        <span class="btn-title">KSign</span>
+        <span class="btn-desc">Бесплатный IPA-подписчик (откроется сайт)</span>
     </a>
+
+    <!-- UnKeySign (веб-сервис) -->
+    <a class="install-btn btn-alt"
+       href="https://unkeysign.com">
+        <span class="btn-title">UnKeySign</span>
+        <span class="btn-desc">Веб-подпись IPA с вашим сертификатом</span>
+    </a>
+
 </div>
 
-<div class="section-label">Способ 3 — если OTA не сработал</div>
+<div class="section-label">Дополнительно</div>
 <div class="btn-group">
-    <a class="install-btn btn-alt"
-       href="https://github.com/alfiecg24/TrollInstallerX/releases/latest/download/TrollInstallerX.ipa">
-        <span class="btn-title">Скачать TrollInstallerX</span>
-        <span class="btn-desc">IPA-файл. Установите через Sideloadly/AltStore</span>
+    <a class="install-btn btn-warn"
+       href="https://github.com/iOS17/Esign">
+        <span class="btn-title">ESign (GitHub)</span>
+        <span class="btn-desc">Скачать IPA-файл ESign для ручной установки</span>
     </a>
 </div>
 
 <div class="note">
-    <b>Важно:</b> все способы работают только в <b>Safari</b>.<br>
-    Если появилась ошибка — перезагрузите iPhone и попробуйте другой способ.<br>
-    <span class="warn">⚠️ После установки TrollStore сразу зайдите в его Настройки и установите ldid и Persistence Helper.</span>
+    <b>Важно:</b> все сервисы работают только в <b>Safari</b>.<br>
+    Для подписи обычно нужен ваш сертификат <b>.p12</b> и профиль <b>.mobileprovision</b>.<br>
+    <span class="warn">⚠️ Если появилась ошибка «Unable to Install» — проверьте, что UDID вашего устройства добавлен в профиль, а сертификат не отозван.</span>
 </div>
 
 </body>
