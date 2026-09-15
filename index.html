@@ -4,33 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#0a84ff">
-    <title>Install dopamine</title>
+    <title>Install Jail</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html, body {
             width: 100%; height: 100%; overflow: hidden; background: #000;
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: #fff; padding: 20px;
         }
+        .btn-group { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 340px; }
         .install-btn {
             display: flex; align-items: center; justify-content: center;
-            width: 100vw; height: 100vh;
+            width: 100%; height: 90px;
             text-decoration: none; color: #fff;
-            font-size: 32px; font-weight: 800; letter-spacing: 1px;
+            font-size: 24px; font-weight: 800; letter-spacing: 1px;
             text-transform: uppercase; text-align: center;
             background: linear-gradient(135deg, #0a84ff 0%, #0051d5 100%);
-            user-select: none; -webkit-user-select: none;
+            border-radius: 18px; transition: background 0.15s ease;
         }
         .install-btn:active { background: linear-gradient(135deg, #0051d5 0%, #003a9e 100%); }
-        .install-btn span { display: block; line-height: 1.2; }
-        @media (orientation: landscape) { .install-btn { font-size: 26px; } }
+        .install-btn.secondary { background: linear-gradient(135deg, #34c759 0%, #248a3d 100%); }
+        .install-btn.secondary:active { background: linear-gradient(135deg, #248a3d 0%, #1c6e30 100%); }
+        .label { font-size: 14px; color: #888; text-align: center; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
-    <a class="install-btn"
-       href="itms-services://?action=download-manifest&url=https%3A%2F%2Fzzzzzzzzzzzz-del.github.io%2Fjail-ios%2Fmanifest.plist">
-        <span>Install Dopamine</span>
-    </a>
+    <div class="btn-group">
+        <!-- ШАГ 1: Установка TrollStore -->
+        <div>
+            <div class="label">Шаг 1</div>
+            <a class="install-btn"
+               href="itms-services://?action=download-manifest&url=https://jailbreaks.app/cdn/plists/TrollHelper.plist">
+                <span>УСТАНОВИТЬ TROLLSTORE</span>
+            </a>
+        </div>
+
+        <!-- ШАГ 2: Установка Dopamine через TrollStore -->
+        <div>
+            <div class="label">Шаг 2 (после установки TrollStore)</div>
+            <a class="install-btn secondary"
+               href="apple-magnifier://install?url=https%3A%2F%2Fgithub.com%2Fopa334%2FDopamine%2Freleases%2Fdownload%2F3.0.9%2FDopamine.ipa">
+                <span>УСТАНОВИТЬ DOPAMINE</span>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
